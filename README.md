@@ -6,4 +6,5 @@
 
 ### Notes de cours
 
-Pour visualiser les notes de cours, aller sur [https://profdenis.github.io/analyse_4P1](https://profdenis.github.io/analyse_4P1)
+Pour visualiser les notes de cours, aller sur 
+[https://profdenis.github.io/analyse_4P1/introduction.html](https://profdenis.github.io/analyse_4P1/introduction.html)

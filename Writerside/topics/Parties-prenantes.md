@@ -1,8 +1,8 @@
 # Parties prenantes
 
-Dans le processus de développement Agile, les "stakeholders" ou parties prenantes réfèrent à toute personne ou groupe
-qui a un intérêt direct ou indirect dans le produit ou le projet. Dans la phase de planification du produit, les parties
-prenantes impliquées peuvent inclure :
+Dans le processus de développement Agile, les _"stakeholders"_ ou **parties prenantes** réfèrent à **toute personne ou
+groupe qui a un intérêt direct ou indirect dans le produit ou le projet**. Dans la phase de planification du produit,
+les parties prenantes impliquées peuvent inclure :
 
 1. **Utilisateurs finaux ou clients :** Les personnes qui utilisent le produit final ou en bénéficient. Leurs besoins et
    préférences influencent fortement les paramètres et fonctionnalités du produit.
@@ -15,8 +15,8 @@ prenantes impliquées peuvent inclure :
 5. **Gestionnaires et Leaders de l'entreprise :** Les membres de la direction qui ont un intérêt dans le succès du
    produit et du projet y sont également inclus.
 6. **Autres Équipes au sein de l'organisation :** Les équipes comme les ventes, le marketing, le support client,
-   certaines fois peuvent être impliqués en tant que parties prenantes car le produit final affecte aussi leur travail.
+   certaines fois peuvent être impliquées en tant que parties prenantes car le produit final affecte aussi leur travail.
 
-Chacune de ces parties prenantes apporte une perspective valuée à la phase de planification du produit et leurs retours
-aident à assurer que le produit final est bien aligné avec les besoins et attentes de ceux qui sont concernés par son
-développement et son utilisation.
+Chacune de ces parties prenantes apporte une perspective valorisée à la phase de planification du produit et leurs
+retours aident à assurer que le produit final est bien aligné sur les besoins et attentes de ceux qui sont concernés
+par son développement et son utilisation.

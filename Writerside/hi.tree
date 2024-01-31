@@ -26,12 +26,18 @@
     </toc-element>
     <toc-element topic="Phase-de-planification.md">
         <toc-element topic="Parties-prenantes.md"/>
-        <toc-element topic="Exploration.md"/>
+        <toc-element topic="Exploration.md">
+            <toc-element topic="Backlog.md"/>
+        </toc-element>
         <toc-element topic="User-stories.md">
             <toc-element topic="Ecrire-des-user-stories.md"/>
             <toc-element topic="Liens-avec-le-BDD.md"/>
             <toc-element topic="Exemples.md"/>
         </toc-element>
         <toc-element topic="Exigences-non-fonctionnelles.md"/>
+        <toc-element topic="Document-vision.md">
+            <toc-element topic="Exemples-de-contenu-d-un-document-vision.md"/>
+            <toc-element topic="Diagramme-de-contexte.md"/>
+        </toc-element>
     </toc-element>
 </instance-profile>

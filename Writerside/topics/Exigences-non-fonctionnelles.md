@@ -31,3 +31,4 @@ Voici comment les exprimer :
 
 Cependant, il est important que toutes ces exigences soient mesurables et testables. Par conséquent, spécifiers les de
 manière claire et précise est crucial pour le développement du logiciel.
+
