@@ -43,5 +43,8 @@
     </toc-element>
     <toc-element topic="Analyse-et-conception-architecturale.md">
         <toc-element topic="Diagramme-de-cas-d-utilisation.md"/>
+        <toc-element topic="Diagrammes-de-composants.md"/>
+        <toc-element topic="Diagrammes-de-déploiement.md"/>
+        <toc-element topic="Différences-entre-diagrammes-de-composants-et-de-déploiement.md"/>
     </toc-element>
 </instance-profile>
