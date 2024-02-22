@@ -64,9 +64,11 @@ Déroulement :
 3. L'Utilisateur entre le titre du livre dans le champ de recherche.
 4. Le Système affiche une liste de livres correspondant au titre recherché.
 
-Postcondition : Une liste de livres correspondant au titre recherché est affichée à l'utilisateur.
+Postcondition : Une liste de livres correspondant au titre recherché est 
+                affichée à l'utilisateur.
 
-Exception : Si aucun livre ne correspond au titre recherché, le système affiche un message indiquant "Aucun livre trouvé".
+Exception : Si aucun livre ne correspond au titre recherché, le système 
+            affiche un message indiquant "Aucun livre trouvé".
 ```
 
 Ce cas d'utilisation détaille plus explicitement le comportement attendu du système et l'interaction de l'utilisateur
@@ -108,65 +110,3 @@ système lui-même est représenté par une boîte. Les cas d'utilisation sont r
 les interactions entre les acteurs et le système sont représentées par des lignes reliant les acteurs aux cas
 d'utilisation correspondants.
 
-### Exemple : générateur de mots de passe
-
-Voici quelques exemples de cas d'utilisation pour un générateur de mots de passe :
-
-1. **Générer un mot de passe sécurisé**
-    - Acteur : Utilisateur
-    - Description : L'utilisateur demande la génération d'un mot de passe sécurisé. Le système génère et affiche le mot
-      de passe.
-
-2. **Définir les paramètres du mot de passe**
-    - Acteur : Utilisateur
-    - Description : L'utilisateur définit des paramètres de mot de passe, tels que la longueur, l'inclusion de chiffres,
-      de caractères spéciaux, de majuscules, etc. Le système enregistre ces paramètres et les utilise pour générer des
-      mots de passe.
-
-3. **Générer plusieurs mots de passe**
-    - Acteur : Utilisateur
-    - Description : L'utilisateur demande la génération de plusieurs mots de passe. Le système génère et affiche la
-      liste des mots de passe.
-
-4. **Copier le mot de passe**
-    - Acteur : Utilisateur
-    - Description : L'utilisateur souhaite copier le mot de passe généré pour l'utiliser ailleurs. Le système fournit
-      une option de copie qui permet à l'utilisateur de copier le mot de passe dans le presse-papiers.
-
-5. **Enregistrer le mot de passe**
-    - Acteur : Utilisateur
-    - Description : L'utilisateur veut enregistrer le mot de passe généré pour une utilisation future. Le système
-      fournit une fonction permettant à l'utilisateur d'enregistrer le mot de passe dans une base de données sécurisée.
-
-6. **Test de complexité du mot de passe**
-    - Acteur : Utilisateur
-    - Description : L'utilisateur souhaite tester la complexité du mot de passe généré. Le système fournit une analyser
-      de complexité qui donne un score basé sur la complexité du mot de passe.
-
-Évidemment, ces cas d'utilisation peuvent varier en fonction des fonctionnalités spécifiques de votre générateur de mots
-de passe.
-
-#### Diagramme
-
-```plantuml
-@startuml
-left to right direction
-actor Utilisateur
-rectangle "Générateur de Mots de Passe" {
-    UseCase (Générer un Mot de Passe Sécurisé)
-    UseCase (Définir les Paramètres du Mot de Passe)
-    UseCase (Générer Plusieurs Mots de Passe)
-    UseCase (Copier le Mot de Passe)
-    UseCase (Enregistrer le Mot de Passe)
-    UseCase (Test de Complexité du Mot de Passe)
-}
-
-Utilisateur -- (Générer un Mot de Passe Sécurisé)
-Utilisateur -- (Définir les Paramètres du Mot de Passe)
-Utilisateur -- (Générer Plusieurs Mots de Passe)
-Utilisateur -- (Copier le Mot de Passe)
-Utilisateur -- (Enregistrer le Mot de Passe)
-Utilisateur -- (Test de Complexité du Mot de Passe)
-
-@enduml
-```

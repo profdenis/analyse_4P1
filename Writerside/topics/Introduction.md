@@ -1,6 +1,6 @@
 # 420-4P1-DM Analyse et conception d'applications
 
-**Pondération du cours**: 2-3-3
+**Pondération du cours** : 2-3-3
 
 ## Description des activités d’enseignement et d’apprentissage :
 
@@ -12,3 +12,5 @@ Par la suite, les étudiants auront un projet basé sur un cas réel et adapté 
 à travers les étapes principales du procédé de développement logiciel : l’exploration, l’analyse, la conception globale,
 la conception détaillée, les tests et les essais. Cela leur permettra de mettre en pratique la théorie et d’avoir déjà
 une petite expérience de développement complet d’un logiciel pour le cours 420-5W1-DM.
+
+[Dépôt Git contenant les fichiers sources de ce site](https://github.com/profdenis/analyse_4P1)

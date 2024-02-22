@@ -42,9 +42,19 @@
         <toc-element topic="Techniques-d-entrevue.md"/>
     </toc-element>
     <toc-element topic="Analyse-et-conception-architecturale.md">
-        <toc-element topic="Diagramme-de-cas-d-utilisation.md"/>
+        <toc-element topic="Diagramme-de-cas-d-utilisation.md">
+            <toc-element topic="Exemples_cas.md"/>
+        </toc-element>
         <toc-element topic="Diagrammes-de-composants.md"/>
-        <toc-element topic="Diagrammes-de-déploiement.md"/>
-        <toc-element topic="Différences-entre-diagrammes-de-composants-et-de-déploiement.md"/>
+        <toc-element topic="Diagrammes-de-deploiement.md">
+            <toc-element topic="Differences-entre-diagrammes-de-composants-et-de-deploiement.md"/>
+        </toc-element>
+        <toc-element topic="Diagrammes-entite-association.md"/>
+        <toc-element topic="Diagrammes-d-activites.md"/>
+        <toc-element topic="Diagrammes-de-package.md"/>
+        <toc-element topic="Diagrammes-de-classes.md"/>
+        <toc-element topic="Diagrammes-du-domaine.md"/>
+    </toc-element>
+    <toc-element topic="Conception-detaillee.md">
     </toc-element>
 </instance-profile>
