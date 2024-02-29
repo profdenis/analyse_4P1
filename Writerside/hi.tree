@@ -50,11 +50,28 @@
             <toc-element topic="Differences-entre-diagrammes-de-composants-et-de-deploiement.md"/>
         </toc-element>
         <toc-element topic="Diagrammes-entite-association.md"/>
+        <toc-element topic="Diagrammes-du-domaine.md"/>
         <toc-element topic="Diagrammes-d-activites.md"/>
+        <toc-element topic="Architectures-materielles-et-logicielles.md">
+            <toc-element topic="Architecture-Monolithique.md"/>
+            <toc-element topic="Architecture-en-couches.md"/>
+            <toc-element topic="Architecture-orientee-services.md"/>
+            <toc-element topic="Architecture-microservices.md"/>
+            <toc-element topic="Architecture-evenementielle.md"/>
+            <toc-element topic="Architecture-pipeline-de-donnees.md"/>
+            <toc-element topic="Architecture-pair-a-pair.md"/>
+            <toc-element topic="Architecture-MVC.md"/>
+        </toc-element>
         <toc-element topic="Diagrammes-de-package.md"/>
         <toc-element topic="Diagrammes-de-classes.md"/>
-        <toc-element topic="Diagrammes-du-domaine.md"/>
+        <toc-element topic="Prototypage.md">
+            <toc-element topic="Maquettes.md"/>
+        </toc-element>
     </toc-element>
     <toc-element topic="Conception-detaillee.md">
+        <toc-element topic="Diagrammes-d-etats.md"/>
+        <toc-element topic="Diagrammes-de-sequences.md"/>
+        <toc-element topic="Diagrammes-de-messages.md"/>
+        <toc-element topic="Patrons-de-conception.md"/>
     </toc-element>
 </instance-profile>

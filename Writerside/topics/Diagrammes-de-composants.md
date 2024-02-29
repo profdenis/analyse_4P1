@@ -32,3 +32,8 @@ systèmes en morceaux plus gérables, et pour aider à la planification de la mi
 ```
 
 [Autres exemples](https://creately.com/blog/software-teams/component-diagram-tutorial/)
+
+## Références
+
+1. [Cours d'UML Chapitre 8](https://laurent-audibert.developpez.com/Cours-UML/?page=diagrammes-composants-deploiement)
+2. [PlantUML](https://plantuml.com/en/component-diagram)

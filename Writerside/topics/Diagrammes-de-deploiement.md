@@ -54,3 +54,8 @@ cloud "Serveur BD 2" {
 ```
 
 [Autres exemples](https://creately.com/blog/software-teams/deployment-diagram-templates/)
+
+## Références
+
+1. [Cours d'UML Chapitre 8](https://laurent-audibert.developpez.com/Cours-UML/?page=diagrammes-composants-deploiement)
+2. [PlantUML](https://plantuml.com/en/deployment-diagram)

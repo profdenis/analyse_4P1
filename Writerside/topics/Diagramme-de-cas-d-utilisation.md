@@ -1,7 +1,5 @@
 # Diagramme de cas d'utilisation
 
-[Cours d'UML, chapitre 2](https://laurent-audibert.developpez.com/Cours-UML/?page=diagramme-cas-utilisation#L2)
-
 ## Différence entre une user story et un cas d'utilisation ?
 
 Une _user story_ et un _cas d'utilisation_ sont deux techniques utilisées dans le développement logiciel pour comprendre
@@ -110,3 +108,7 @@ système lui-même est représenté par une boîte. Les cas d'utilisation sont r
 les interactions entre les acteurs et le système sont représentées par des lignes reliant les acteurs aux cas
 d'utilisation correspondants.
 
+## Références
+
+1. [Cours d'UML Chapitre 2](https://laurent-audibert.developpez.com/Cours-UML/?page=diagramme-cas-utilisation#L2)
+2. [PlantUML](https://plantuml.com/en/use-case-diagram)

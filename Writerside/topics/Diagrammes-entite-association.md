@@ -156,3 +156,7 @@ Concert "*" - performed_diamond
 Act "*" -- "1..*" Performer
 @enduml
 ```
+
+## Références
+
+1. [PlantUML](https://plantuml.com/en/ie-diagram)
