@@ -1,0 +1,261 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-03-13T19:51:08.895509077"><title>Exemple : ORDBMS | Help Instance</title><script type="application/json" id="virtual-toc-data">[{"id":"contacts-normalis-s","level":0,"title":"Contacts normalisés","anchor":"#contacts-normalis-s"},{"id":"contacts-d-normalis-s","level":0,"title":"Contacts dénormalisés","anchor":"#contacts-d-normalis-s"},{"id":"types-d-finis-par-les-utilisateurs","level":0,"title":"Types définis par les utilisateurs","anchor":"#types-d-finis-par-les-utilisateurs"},{"id":"jsonb-la-place-de-tableaux","level":0,"title":"JSONB à la place de tableaux","anchor":"#jsonb-la-place-de-tableaux"},{"id":"sch-ma-relationnel-avec-les-types-de-contact","level":0,"title":"Schéma relationnel avec les types de contact","anchor":"#sch-ma-relationnel-avec-les-types-de-contact"},{"id":"comment-traitons-nous-les-relations-plusieurs-plusieurs","level":0,"title":"Comment traitons-nous les relations plusieurs à plusieurs ?","anchor":"#comment-traitons-nous-les-relations-plusieurs-plusieurs"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b224/app.css" rel="stylesheet"><link rel="manifest" href="site.webmanifest"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Exemple : ORDBMS | Help Instance"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Help Instance Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/exemple-ordbms.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Exemple : ORDBMS | Help Instance"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/exemple-ordbms.html#webpage",
+    "url": "writerside-documentation/exemple-ordbms.html",
+    "name": "Exemple : ORDBMS | Help Instance",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Help Instance Help"
+}</script><!-- End Schema.org --></head><body data-id="Exemple-ORDBMS" data-main-title="Exemple : ORDBMS" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Conception-detaillee.md|Conception détaillée///Modeles-de-donnees.md|Modèles de données"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Help Instance  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Exemple-ORDBMS" id="Exemple-ORDBMS.md">Exemple : ORDBMS</h1><p id="-wrbqjp_59531"><span class="emphasis" id="-wrbqjp_59532">ORDBMS</span>: Object-Relational DBMS</p><section class="chapter"><h2 id="contacts-normalis-s" data-toc="contacts-normalis-s">Contacts normalis&eacute;s</h2><section class="chapter"><h3 id="contacts1-sch-ma-relationnel" data-toc="contacts1-sch-ma-relationnel"><code class="code" id="-wrbqjp_59534">contacts1</code> Sch&eacute;ma relationnel</h3><div class="code-block" data-lang="sql">
+DROP SCHEMA IF EXISTS contacts1 CASCADE;
+CREATE SCHEMA contacts1;
+SET search_path TO contacts1;
+
+CREATE TABLE users (
+    uid INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    username VARCHAR(15) NOT NULL,
+    email TEXT NOT NULL,
+    firstname TEXT,
+    lastname TEXT,
+    emergency_contact TEXT
+);
+</div><div class="code-block" data-lang="sql">
+INSERT INTO users (username, email, emergency_contact)
+    VALUES ('denis', 'denis.rinfret@example.com', 'help@example.com'),
+            ('minh', 'minh@example.com', 'contact@example.com');
+</div><div class="code-block" data-lang="sql">
+SELECT * FROM users;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59538"><thead><tr class="ijRowHead" id="-wrbqjp_59539"><th id="-wrbqjp_59540"><p>uid</p></th><th id="-wrbqjp_59541"><p>username</p></th><th id="-wrbqjp_59542"><p>email</p></th><th id="-wrbqjp_59543"><p>firstname</p></th><th id="-wrbqjp_59544"><p>lastname</p></th><th id="-wrbqjp_59545"><p>emergency_contact</p></th></tr></thead><tbody><tr id="-wrbqjp_59546"><td id="-wrbqjp_59547"><p>1</p></td><td id="-wrbqjp_59548"><p>denis</p></td><td id="-wrbqjp_59549"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_59550"><p>None</p></td><td id="-wrbqjp_59551"><p>None</p></td><td id="-wrbqjp_59552"><p>help@example.com</p></td></tr><tr id="-wrbqjp_59553"><td id="-wrbqjp_59554"><p>2</p></td><td id="-wrbqjp_59555"><p>minh</p></td><td id="-wrbqjp_59556"><p>minh@example.com</p></td><td id="-wrbqjp_59557"><p>None</p></td><td id="-wrbqjp_59558"><p>None</p></td><td id="-wrbqjp_59559"><p>contact@example.com</p></td></tr></tbody></table></div></section><section class="chapter"><h3 id="que-devons-nous-faire-pour-permettre-un-utilisateur-d-avoir-plus-d-un-contact" data-toc="que-devons-nous-faire-pour-permettre-un-utilisateur-d-avoir-plus-d-un-contact">Que devons-nous faire pour permettre &agrave; un utilisateur d'avoir plus d'un contact ?</h3><ol class="list _decimal" id="-wrbqjp_59560" type="1"><li class="list__item" id="-wrbqjp_59561"><p>Si le nombre de contacts est fixe, disons <code class="code" id="-wrbqjp_59562">n</code> contacts, alors nous pourrions avoir <code class="code" id="-wrbqjp_59563">n</code> colonnes de contacts, tant que <code class="code" id="-wrbqjp_59564">n</code> est petit.</p></li><li class="list__item" id="-wrbqjp_59565"><p>Mais si <code class="code" id="-wrbqjp_59566">n</code> n'est pas petit ou si <code class="code" id="-wrbqjp_59567">n</code> est inconnu, alors nous devons avoir une autre table, une table contacts, pour pr&eacute;server la premi&egrave;re forme normale.</p></li><li class="list__item" id="-wrbqjp_59568"><p>La premi&egrave;re forme normale stipule que chaque valeur de colonne doit &ecirc;tre atomique.</p></li></ol></section><section class="chapter"><h3 id="contacts2-sch-ma-relationnel" data-toc="contacts2-sch-ma-relationnel"><code class="code" id="-wrbqjp_59570">contacts2</code> Sch&eacute;ma relationnel</h3><div class="code-block" data-lang="sql">
+DROP SCHEMA IF EXISTS contacts2 CASCADE;
+CREATE SCHEMA contacts2;
+SET search_path TO contacts2;
+
+CREATE TABLE users (
+    uid INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    username VARCHAR(15) NOT NULL,
+    email TEXT NOT NULL,
+    firstname TEXT,
+    lastname TEXT
+);
+
+CREATE TABLE contacts (
+    cid INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    email TEXT NOT NULL,
+    uid INTEGER REFERENCES users(uid)
+)
+</div><div class="code-block" data-lang="sql">
+ INSERT INTO users (username, email)
+    VALUES ('denis', 'denis.rinfret@example.com'),
+            ('minh', 'minh@example.com');
+
+INSERT INTO contacts (email, uid) 
+    VALUES ('help@example.com', 1), ('minh@example.com', 1), 
+        ('contact@example.com', 2) , ('ha@example.com', 2);
+    
+</div><div class="code-block" data-lang="sql">
+SELECT * FROM users;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59574"><thead><tr class="ijRowHead" id="-wrbqjp_59575"><th id="-wrbqjp_59576"><p>uid</p></th><th id="-wrbqjp_59577"><p>username</p></th><th id="-wrbqjp_59578"><p>email</p></th><th id="-wrbqjp_59579"><p>firstname</p></th><th id="-wrbqjp_59580"><p>lastname</p></th></tr></thead><tbody><tr id="-wrbqjp_59581"><td id="-wrbqjp_59582"><p>1</p></td><td id="-wrbqjp_59583"><p>denis</p></td><td id="-wrbqjp_59584"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_59585"><p>None</p></td><td id="-wrbqjp_59586"><p>None</p></td></tr><tr id="-wrbqjp_59587"><td id="-wrbqjp_59588"><p>2</p></td><td id="-wrbqjp_59589"><p>minh</p></td><td id="-wrbqjp_59590"><p>minh@example.com</p></td><td id="-wrbqjp_59591"><p>None</p></td><td id="-wrbqjp_59592"><p>None</p></td></tr></tbody></table></div><div class="code-block" data-lang="sql">
+SELECT * FROM contacts;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59594"><thead><tr class="ijRowHead" id="-wrbqjp_59595"><th id="-wrbqjp_59596"><p>cid</p></th><th id="-wrbqjp_59597"><p>email</p></th><th id="-wrbqjp_59598"><p>uid</p></th></tr></thead><tbody><tr id="-wrbqjp_59599"><td id="-wrbqjp_59600"><p>1</p></td><td id="-wrbqjp_59601"><p>help@example.com</p></td><td id="-wrbqjp_59602"><p>1</p></td></tr><tr id="-wrbqjp_59603"><td id="-wrbqjp_59604"><p>2</p></td><td id="-wrbqjp_59605"><p>minh@example.com</p></td><td id="-wrbqjp_59606"><p>1</p></td></tr><tr id="-wrbqjp_59607"><td id="-wrbqjp_59608"><p>3</p></td><td id="-wrbqjp_59609"><p>contact@example.com</p></td><td id="-wrbqjp_59610"><p>2</p></td></tr><tr id="-wrbqjp_59611"><td id="-wrbqjp_59612"><p>4</p></td><td id="-wrbqjp_59613"><p>ha@example.com</p></td><td id="-wrbqjp_59614"><p>2</p></td></tr></tbody></table></div></section><section class="chapter"><h3 id="jointure-n-cessaire-pour-obtenir-toutes-les-donn-es" data-toc="jointure-n-cessaire-pour-obtenir-toutes-les-donn-es">Jointure n&eacute;cessaire pour obtenir toutes les donn&eacute;es</h3><div class="code-block" data-lang="sql">
+SELECT * FROM users u INNER JOIN contacts c ON u.uid = c.uid;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59616"><thead><tr class="ijRowHead" id="-wrbqjp_59617"><th id="-wrbqjp_59618"><p>uid</p></th><th id="-wrbqjp_59619"><p>username</p></th><th id="-wrbqjp_59620"><p>email</p></th><th id="-wrbqjp_59621"><p>firstname</p></th><th id="-wrbqjp_59622"><p>lastname</p></th><th id="-wrbqjp_59623"><p>cid</p></th><th id="-wrbqjp_59624"><p>email_1</p></th><th id="-wrbqjp_59625"><p>uid_1</p></th></tr></thead><tbody><tr id="-wrbqjp_59626"><td id="-wrbqjp_59627"><p>1</p></td><td id="-wrbqjp_59628"><p>denis</p></td><td id="-wrbqjp_59629"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_59630"><p>None</p></td><td id="-wrbqjp_59631"><p>None</p></td><td id="-wrbqjp_59632"><p>1</p></td><td id="-wrbqjp_59633"><p>help@example.com</p></td><td id="-wrbqjp_59634"><p>1</p></td></tr><tr id="-wrbqjp_59635"><td id="-wrbqjp_59636"><p>1</p></td><td id="-wrbqjp_59637"><p>denis</p></td><td id="-wrbqjp_59638"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_59639"><p>None</p></td><td id="-wrbqjp_59640"><p>None</p></td><td id="-wrbqjp_59641"><p>2</p></td><td id="-wrbqjp_59642"><p>minh@example.com</p></td><td id="-wrbqjp_59643"><p>1</p></td></tr><tr id="-wrbqjp_59644"><td id="-wrbqjp_59645"><p>2</p></td><td id="-wrbqjp_59646"><p>minh</p></td><td id="-wrbqjp_59647"><p>minh@example.com</p></td><td id="-wrbqjp_59648"><p>None</p></td><td id="-wrbqjp_59649"><p>None</p></td><td id="-wrbqjp_59650"><p>3</p></td><td id="-wrbqjp_59651"><p>contact@example.com</p></td><td id="-wrbqjp_59652"><p>2</p></td></tr><tr id="-wrbqjp_59653"><td id="-wrbqjp_59654"><p>2</p></td><td id="-wrbqjp_59655"><p>minh</p></td><td id="-wrbqjp_59656"><p>minh@example.com</p></td><td id="-wrbqjp_59657"><p>None</p></td><td id="-wrbqjp_59658"><p>None</p></td><td id="-wrbqjp_59659"><p>4</p></td><td id="-wrbqjp_59660"><p>ha@example.com</p></td><td id="-wrbqjp_59661"><p>2</p></td></tr></tbody></table></div><ol class="list _decimal" id="-wrbqjp_59662" type="1"><li class="list__item" id="-wrbqjp_59663"><p>Les jointures peuvent &ecirc;tre lentes.</p></li><li class="list__item" id="-wrbqjp_59664"><p>Mais sans normalisation, les donn&eacute;es peuvent &ecirc;tre redondantes et des anomalies peuvent appara&icirc;tre.</p></li><li class="list__item" id="-wrbqjp_59665"><p>Une SGDB <code class="code" id="-wrbqjp_59666">object-relationalle</code> (SGBDOR, ou ORDBMS) peut aider.</p></li></ol></section></section><section class="chapter"><h2 id="contacts-d-normalis-s" data-toc="contacts-d-normalis-s">Contacts d&eacute;normalis&eacute;s</h2><section class="chapter"><h3 id="contacts3-sch-ma-objet-relationnel" data-toc="contacts3-sch-ma-objet-relationnel"><code class="code" id="-wrbqjp_59668">contacts3</code> Sch&eacute;ma objet-relationnel</h3><div class="code-block" data-lang="sql">
+DROP SCHEMA IF EXISTS contacts3 CASCADE;
+CREATE SCHEMA contacts3;
+SET search_path TO contacts3;
+
+CREATE TABLE users (
+    uid INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    username VARCHAR(15) NOT NULL,
+    email TEXT NOT NULL,
+    firstname TEXT,
+    lastname TEXT,
+    emergency_contacts TEXT[]
+);
+</div><div class="code-block" data-lang="sql">
+INSERT INTO users (username, email, emergency_contacts)
+VALUES ('denis', 'denis.rinfret@example.com',
+        ARRAY ['help@example.com', 'minh@example.com']),
+       ('minh', 'minh@example.com',
+        ARRAY ['contact@example.com', 'ha@example.com']);
+</div><div class="code-block" data-lang="sql">
+SELECT uid, emergency_contacts FROM users;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59672"><thead><tr class="ijRowHead" id="-wrbqjp_59673"><th id="-wrbqjp_59674"><p>uid</p></th><th id="-wrbqjp_59675"><p>emergency_contacts</p></th></tr></thead><tbody><tr id="-wrbqjp_59676"><td id="-wrbqjp_59677"><p>1</p></td><td id="-wrbqjp_59678"><p>[&quot;help@example.com&quot;, &quot;minh@example.com&quot;]</p></td></tr><tr id="-wrbqjp_59679"><td id="-wrbqjp_59680"><p>2</p></td><td id="-wrbqjp_59681"><p>[&quot;contact@example.com&quot;, &quot;ha@example.com&quot;]</p></td></tr></tbody></table></div><div class="code-block" data-lang="sql">
+SELECT uid, username, email, firstname, lastname, 
+        unnest(emergency_contacts) 
+FROM users;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59683"><thead><tr class="ijRowHead" id="-wrbqjp_59684"><th id="-wrbqjp_59685"><p>uid</p></th><th id="-wrbqjp_59686"><p>username</p></th><th id="-wrbqjp_59687"><p>email</p></th><th id="-wrbqjp_59688"><p>firstname</p></th><th id="-wrbqjp_59689"><p>lastname</p></th><th id="-wrbqjp_59690"><p>unnest</p></th></tr></thead><tbody><tr id="-wrbqjp_59691"><td id="-wrbqjp_59692"><p>1</p></td><td id="-wrbqjp_59693"><p>denis</p></td><td id="-wrbqjp_59694"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_59695"><p>None</p></td><td id="-wrbqjp_59696"><p>None</p></td><td id="-wrbqjp_59697"><p>help@example.com</p></td></tr><tr id="-wrbqjp_59698"><td id="-wrbqjp_59699"><p>1</p></td><td id="-wrbqjp_59700"><p>denis</p></td><td id="-wrbqjp_59701"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_59702"><p>None</p></td><td id="-wrbqjp_59703"><p>None</p></td><td id="-wrbqjp_59704"><p>minh@example.com</p></td></tr><tr id="-wrbqjp_59705"><td id="-wrbqjp_59706"><p>2</p></td><td id="-wrbqjp_59707"><p>minh</p></td><td id="-wrbqjp_59708"><p>minh@example.com</p></td><td id="-wrbqjp_59709"><p>None</p></td><td id="-wrbqjp_59710"><p>None</p></td><td id="-wrbqjp_59711"><p>contact@example.com</p></td></tr><tr id="-wrbqjp_59712"><td id="-wrbqjp_59713"><p>2</p></td><td id="-wrbqjp_59714"><p>minh</p></td><td id="-wrbqjp_59715"><p>minh@example.com</p></td><td id="-wrbqjp_59716"><p>None</p></td><td id="-wrbqjp_59717"><p>None</p></td><td id="-wrbqjp_59718"><p>ha@example.com</p></td></tr></tbody></table></div></section><section class="chapter"><h3 id="trouver-les-utilisateurs-avec-un-courriel-sp-cifique-comme-premier-contact-d-urgence" data-toc="trouver-les-utilisateurs-avec-un-courriel-sp-cifique-comme-premier-contact-d-urgence">Trouver les utilisateurs avec un courriel sp&eacute;cifique comme premier contact d'urgence</h3><div class="code-block" data-lang="sql">
+SELECT uid, username, email
+FROM users
+WHERE emergency_contacts[1] = 'help@example.com';
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59720"><thead><tr class="ijRowHead" id="-wrbqjp_59721"><th id="-wrbqjp_59722"><p>uid</p></th><th id="-wrbqjp_59723"><p>username</p></th><th id="-wrbqjp_59724"><p>email</p></th></tr></thead><tbody><tr id="-wrbqjp_59725"><td id="-wrbqjp_59726"><p>1</p></td><td id="-wrbqjp_59727"><p>denis</p></td><td id="-wrbqjp_59728"><p>denis.rinfret@example.com</p></td></tr></tbody></table></div></section><section class="chapter"><h3 id="trouver-un-utilisateur-avec-un-courriel-sp-cifique-comme-contact-d-urgence-n-importe-quelle-position" data-toc="trouver-un-utilisateur-avec-un-courriel-sp-cifique-comme-contact-d-urgence-n-importe-quelle-position">Trouver un utilisateur avec un courriel sp&eacute;cifique comme contact d'urgence (n'importe quelle position)</h3><div class="code-block" data-lang="sql">
+ 
+SELECT uid, username, email
+FROM users
+WHERE 'ha@example.com' = ANY (emergency_contacts);
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59730"><thead><tr class="ijRowHead" id="-wrbqjp_59731"><th id="-wrbqjp_59732"><p>uid</p></th><th id="-wrbqjp_59733"><p>username</p></th><th id="-wrbqjp_59734"><p>email</p></th></tr></thead><tbody><tr id="-wrbqjp_59735"><td id="-wrbqjp_59736"><p>2</p></td><td id="-wrbqjp_59737"><p>minh</p></td><td id="-wrbqjp_59738"><p>minh@example.com</p></td></tr></tbody></table></div></section><section class="chapter"><h3 id="trouver-les-utilisateurs-qui-sont-list-s-comme-contact-d-urgence-d-autres-utilisateurs" data-toc="trouver-les-utilisateurs-qui-sont-list-s-comme-contact-d-urgence-d-autres-utilisateurs">Trouver les utilisateurs qui sont list&eacute;s comme contact d'urgence d'autres utilisateurs</h3><div class="code-block" data-lang="sql">
+SELECT uid, username, email
+FROM users
+WHERE email IN (SELECT unnest(emergency_contacts) 
+                FROM users);
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59740"><thead><tr class="ijRowHead" id="-wrbqjp_59741"><th id="-wrbqjp_59742"><p>uid</p></th><th id="-wrbqjp_59743"><p>username</p></th><th id="-wrbqjp_59744"><p>email</p></th></tr></thead><tbody><tr id="-wrbqjp_59745"><td id="-wrbqjp_59746"><p>2</p></td><td id="-wrbqjp_59747"><p>minh</p></td><td id="-wrbqjp_59748"><p>minh@example.com</p></td></tr></tbody></table></div><div class="code-block" data-lang="sql">
+SELECT distinct uid, username, email
+FROM users
+         INNER JOIN
+     (SELECT unnest(emergency_contacts) AS emergency_email
+      FROM users) AS all_contacts 
+         ON email = emergency_email;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59750"><thead><tr class="ijRowHead" id="-wrbqjp_59751"><th id="-wrbqjp_59752"><p>uid</p></th><th id="-wrbqjp_59753"><p>username</p></th><th id="-wrbqjp_59754"><p>email</p></th></tr></thead><tbody><tr id="-wrbqjp_59755"><td id="-wrbqjp_59756"><p>2</p></td><td id="-wrbqjp_59757"><p>minh</p></td><td id="-wrbqjp_59758"><p>minh@example.com</p></td></tr></tbody></table></div></section><section class="chapter"><h3 id="sans-unnest-ni-sous-requ-tes" data-toc="sans-unnest-ni-sous-requ-tes">Sans <code class="code" id="-wrbqjp_59760">unnest</code> ni sous-requ&ecirc;tes</h3><div class="code-block" data-lang="sql">
+SELECT u1.uid, u1.username, u1.email
+FROM users u1 INNER JOIN users u2 
+     ON u1.email =ANY (u2.emergency_contacts);
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59762"><thead><tr class="ijRowHead" id="-wrbqjp_59763"><th id="-wrbqjp_59764"><p>uid</p></th><th id="-wrbqjp_59765"><p>username</p></th><th id="-wrbqjp_59766"><p>email</p></th></tr></thead><tbody><tr id="-wrbqjp_59767"><td id="-wrbqjp_59768"><p>2</p></td><td id="-wrbqjp_59769"><p>minh</p></td><td id="-wrbqjp_59770"><p>minh@example.com</p></td></tr></tbody></table></div></section></section><section class="chapter"><h2 id="types-d-finis-par-les-utilisateurs" data-toc="types-d-finis-par-les-utilisateurs">Types d&eacute;finis par les utilisateurs</h2><p id="-wrbqjp_59771">User-Defined Types (UDT)</p><section class="chapter"><h3 id="contacts4-sch-ma-objet-relationnel" data-toc="contacts4-sch-ma-objet-relationnel"><code class="code" id="-wrbqjp_59773">contacts4</code> Sch&eacute;ma objet-relationnel</h3><div class="code-block" data-lang="sql">
+DROP SCHEMA IF EXISTS contacts4 CASCADE;
+CREATE SCHEMA contacts4;
+SET search_path TO contacts4;
+
+CREATE TYPE contact_type AS ENUM ('emergency', 'friend', 
+                                  'family', 'colleague');
+
+CREATE TYPE contact AS (
+    email TEXT,
+    type contact_type
+);
+</div><div class="code-block" data-lang="sql">
+CREATE TABLE users (
+    uid INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    username VARCHAR(15) NOT NULL,
+    email TEXT NOT NULL,
+    firstname TEXT,
+    lastname TEXT, 
+    contacts contact[]
+);
+</div><div class="code-block" data-lang="sql">
+INSERT INTO users (username, email, contacts)
+    VALUES ('denis', 'denis.rinfret@example.com', 
+            ARRAY[('help@example.com', 'emergency')::contact, 
+                  ('minh@example.com', 'friend')::contact]),
+            ('minh', 'minh@example.com', 
+             ARRAY[('contact@example.com', 'family')::contact, 
+                   ('ha@example.com', 'colleague')::contact]);
+</div><div class="code-block" data-lang="sql">
+SELECT uid, contacts FROM users;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59778"><thead><tr class="ijRowHead" id="-wrbqjp_59779"><th id="-wrbqjp_59780"><p>uid</p></th><th id="-wrbqjp_59781"><p>contacts</p></th></tr></thead><tbody><tr id="-wrbqjp_59782"><td id="-wrbqjp_59783"><p>1</p></td><td id="-wrbqjp_59784"><p>{&quot;(help@example.com,emergency)&quot;,&quot;(minh@example.com,friend)&quot;}</p></td></tr><tr id="-wrbqjp_59785"><td id="-wrbqjp_59786"><p>2</p></td><td id="-wrbqjp_59787"><p>{&quot;(contact@example.com,family)&quot;,&quot;(ha@example.com,colleague)&quot;}</p></td></tr></tbody></table></div><div class="code-block" data-lang="sql">
+SELECT uid, username, email, 
+    (unnest(contacts)::contact).*
+FROM users;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59789"><thead><tr class="ijRowHead" id="-wrbqjp_59790"><th id="-wrbqjp_59791"><p>uid</p></th><th id="-wrbqjp_59792"><p>username</p></th><th id="-wrbqjp_59793"><p>email</p></th><th id="-wrbqjp_59794"><p>email_1</p></th><th id="-wrbqjp_59795"><p>type</p></th></tr></thead><tbody><tr id="-wrbqjp_59796"><td id="-wrbqjp_59797"><p>1</p></td><td id="-wrbqjp_59798"><p>denis</p></td><td id="-wrbqjp_59799"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_59800"><p>help@example.com</p></td><td id="-wrbqjp_59801"><p>emergency</p></td></tr><tr id="-wrbqjp_59802"><td id="-wrbqjp_59803"><p>1</p></td><td id="-wrbqjp_59804"><p>denis</p></td><td id="-wrbqjp_59805"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_59806"><p>minh@example.com</p></td><td id="-wrbqjp_59807"><p>friend</p></td></tr><tr id="-wrbqjp_59808"><td id="-wrbqjp_59809"><p>2</p></td><td id="-wrbqjp_59810"><p>minh</p></td><td id="-wrbqjp_59811"><p>minh@example.com</p></td><td id="-wrbqjp_59812"><p>contact@example.com</p></td><td id="-wrbqjp_59813"><p>family</p></td></tr><tr id="-wrbqjp_59814"><td id="-wrbqjp_59815"><p>2</p></td><td id="-wrbqjp_59816"><p>minh</p></td><td id="-wrbqjp_59817"><p>minh@example.com</p></td><td id="-wrbqjp_59818"><p>ha@example.com</p></td><td id="-wrbqjp_59819"><p>colleague</p></td></tr></tbody></table></div><div class="code-block" data-lang="sql">
+SELECT uid, username, email, 
+        (unnest(contacts)::contact).email AS contact_email, 
+        (unnest(contacts)::contact).type AS contact_type 
+FROM users;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59821"><thead><tr class="ijRowHead" id="-wrbqjp_59822"><th id="-wrbqjp_59823"><p>uid</p></th><th id="-wrbqjp_59824"><p>username</p></th><th id="-wrbqjp_59825"><p>email</p></th><th id="-wrbqjp_59826"><p>contact_email</p></th><th id="-wrbqjp_59827"><p>contact_type</p></th></tr></thead><tbody><tr id="-wrbqjp_59828"><td id="-wrbqjp_59829"><p>1</p></td><td id="-wrbqjp_59830"><p>denis</p></td><td id="-wrbqjp_59831"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_59832"><p>help@example.com</p></td><td id="-wrbqjp_59833"><p>emergency</p></td></tr><tr id="-wrbqjp_59834"><td id="-wrbqjp_59835"><p>1</p></td><td id="-wrbqjp_59836"><p>denis</p></td><td id="-wrbqjp_59837"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_59838"><p>minh@example.com</p></td><td id="-wrbqjp_59839"><p>friend</p></td></tr><tr id="-wrbqjp_59840"><td id="-wrbqjp_59841"><p>2</p></td><td id="-wrbqjp_59842"><p>minh</p></td><td id="-wrbqjp_59843"><p>minh@example.com</p></td><td id="-wrbqjp_59844"><p>contact@example.com</p></td><td id="-wrbqjp_59845"><p>family</p></td></tr><tr id="-wrbqjp_59846"><td id="-wrbqjp_59847"><p>2</p></td><td id="-wrbqjp_59848"><p>minh</p></td><td id="-wrbqjp_59849"><p>minh@example.com</p></td><td id="-wrbqjp_59850"><p>ha@example.com</p></td><td id="-wrbqjp_59851"><p>colleague</p></td></tr></tbody></table></div></section><section class="chapter"><h3 id="trouver-tous-les-contacts-d-urgence-d-un-utilisateur" data-toc="trouver-tous-les-contacts-d-urgence-d-un-utilisateur">Trouver tous les contacts d'urgence d'un utilisateur</h3><div class="code-block" data-lang="sql">
+SELECT *
+FROM (SELECT uid, username, email, 
+        (unnest(contacts)::contact).email AS contact_email, 
+        (unnest(contacts)::contact).type AS contact_type 
+      FROM users) AS temp
+WHERE contact_type = 'emergency';
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59853"><thead><tr class="ijRowHead" id="-wrbqjp_59854"><th id="-wrbqjp_59855"><p>uid</p></th><th id="-wrbqjp_59856"><p>username</p></th><th id="-wrbqjp_59857"><p>email</p></th><th id="-wrbqjp_59858"><p>contact_email</p></th><th id="-wrbqjp_59859"><p>contact_type</p></th></tr></thead><tbody><tr id="-wrbqjp_59860"><td id="-wrbqjp_59861"><p>1</p></td><td id="-wrbqjp_59862"><p>denis</p></td><td id="-wrbqjp_59863"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_59864"><p>help@example.com</p></td><td id="-wrbqjp_59865"><p>emergency</p></td></tr></tbody></table></div></section><section class="chapter"><h3 id="trouver-les-utilisateurs-sans-contacts-d-urgence" data-toc="trouver-les-utilisateurs-sans-contacts-d-urgence">Trouver les utilisateurs sans contacts d'urgence</h3><div class="code-block" data-lang="sql">
+SELECT uid, username, email
+FROM users
+WHERE 'emergency' NOT IN (SELECT (unnest(contacts)::contact).type);
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59867"><thead><tr class="ijRowHead" id="-wrbqjp_59868"><th id="-wrbqjp_59869"><p>uid</p></th><th id="-wrbqjp_59870"><p>username</p></th><th id="-wrbqjp_59871"><p>email</p></th></tr></thead><tbody><tr id="-wrbqjp_59872"><td id="-wrbqjp_59873"><p>2</p></td><td id="-wrbqjp_59874"><p>minh</p></td><td id="-wrbqjp_59875"><p>minh@example.com</p></td></tr></tbody></table></div><div class="code-block" data-lang="sql">
+SELECT uid, username, email
+FROM users
+WHERE 'emergency' !=ALL (SELECT (unnest(contacts)::contact).type);
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59877"><thead><tr class="ijRowHead" id="-wrbqjp_59878"><th id="-wrbqjp_59879"><p>uid</p></th><th id="-wrbqjp_59880"><p>username</p></th><th id="-wrbqjp_59881"><p>email</p></th></tr></thead><tbody><tr id="-wrbqjp_59882"><td id="-wrbqjp_59883"><p>2</p></td><td id="-wrbqjp_59884"><p>minh</p></td><td id="-wrbqjp_59885"><p>minh@example.com</p></td></tr></tbody></table></div></section></section><section class="chapter"><h2 id="jsonb-la-place-de-tableaux" data-toc="jsonb-la-place-de-tableaux">JSONB &agrave; la place de tableaux</h2><section class="chapter"><h3 id="contacts5-sch-ma-objet-relationnel" data-toc="contacts5-sch-ma-objet-relationnel"><code class="code" id="-wrbqjp_59887">contacts5</code> Sch&eacute;ma objet-relationnel</h3><div class="code-block" data-lang="sql">
+DROP SCHEMA IF EXISTS contacts5 CASCADE;
+CREATE SCHEMA contacts5;
+SET search_path TO contacts5;
+
+CREATE TABLE users (
+    uid INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    username VARCHAR(15) NOT NULL,
+    email TEXT NOT NULL,
+    firstname TEXT,
+    lastname TEXT, 
+    contacts jsonb
+);
+</div><div class="code-block" data-lang="sql">
+INSERT INTO users (username, email, contacts)
+    VALUES ('denis', 'denis.rinfret@example.com', 
+            '{&quot;emergency&quot;: &quot;help@example.com&quot;, &quot;friend&quot;: &quot;minh@example.com&quot;}'),
+            ('minh', 'minh@example.com', 
+            '{&quot;family&quot;: &quot;contact@example.com&quot;, &quot;colleague&quot;: &quot;ha@example.com&quot;}');
+</div><div class="code-block" data-lang="sql">
+SELECT uid, contacts FROM users;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59891"><thead><tr class="ijRowHead" id="-wrbqjp_59892"><th id="-wrbqjp_59893"><p>uid</p></th><th id="-wrbqjp_59894"><p>contacts</p></th></tr></thead><tbody><tr id="-wrbqjp_59895"><td id="-wrbqjp_59896"><p>1</p></td><td id="-wrbqjp_59897"><p>{&quot;friend&quot;: &quot;minh@example.com&quot;, &quot;emergency&quot;: &quot;help@example.com&quot;}</p></td></tr><tr id="-wrbqjp_59898"><td id="-wrbqjp_59899"><p>2</p></td><td id="-wrbqjp_59900"><p>{&quot;family&quot;: &quot;contact@example.com&quot;, &quot;colleague&quot;: &quot;ha@example.com&quot;}</p></td></tr></tbody></table></div></section><section class="chapter"><h3 id="trouver-les-utilisateurs-avec-au-moins-un-contact-d-urgence" data-toc="trouver-les-utilisateurs-avec-au-moins-un-contact-d-urgence">Trouver les utilisateurs avec au moins un contact d'urgence</h3><div class="code-block" data-lang="sql">
+SELECT uid, username, email
+FROM users
+WHERE 'emergency' IN (SELECT jsonb_object_keys(contacts));
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59902"><thead><tr class="ijRowHead" id="-wrbqjp_59903"><th id="-wrbqjp_59904"><p>uid</p></th><th id="-wrbqjp_59905"><p>username</p></th><th id="-wrbqjp_59906"><p>email</p></th></tr></thead><tbody><tr id="-wrbqjp_59907"><td id="-wrbqjp_59908"><p>1</p></td><td id="-wrbqjp_59909"><p>denis</p></td><td id="-wrbqjp_59910"><p>denis.rinfret@example.com</p></td></tr></tbody></table></div><div class="code-block" data-lang="sql">
+SELECT uid, username, email
+FROM users
+WHERE contacts ? 'emergency';
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59912"><thead><tr class="ijRowHead" id="-wrbqjp_59913"><th id="-wrbqjp_59914"><p>uid</p></th><th id="-wrbqjp_59915"><p>username</p></th><th id="-wrbqjp_59916"><p>email</p></th></tr></thead><tbody><tr id="-wrbqjp_59917"><td id="-wrbqjp_59918"><p>1</p></td><td id="-wrbqjp_59919"><p>denis</p></td><td id="-wrbqjp_59920"><p>denis.rinfret@example.com</p></td></tr></tbody></table></div><div class="code-block" data-lang="sql">
+SELECT uid, username, email, contacts-&gt;'emergency' AS emergency
+FROM users
+WHERE contacts ? 'emergency';
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59922"><thead><tr class="ijRowHead" id="-wrbqjp_59923"><th id="-wrbqjp_59924"><p>uid</p></th><th id="-wrbqjp_59925"><p>username</p></th><th id="-wrbqjp_59926"><p>email</p></th><th id="-wrbqjp_59927"><p>emergency</p></th></tr></thead><tbody><tr id="-wrbqjp_59928"><td id="-wrbqjp_59929"><p>1</p></td><td id="-wrbqjp_59930"><p>denis</p></td><td id="-wrbqjp_59931"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_59932"><p>help@example.com</p></td></tr></tbody></table></div></section><section class="chapter"><h3 id="trouver-les-utilisateurs-sans-contacts-d-urgence_1" data-toc="trouver-les-utilisateurs-sans-contacts-d-urgence_1">Trouver les utilisateurs sans contacts d'urgence</h3><div class="code-block" data-lang="sql">
+SELECT uid, username, email
+FROM users
+WHERE NOT(contacts ? 'emergency');
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59934"><thead><tr class="ijRowHead" id="-wrbqjp_59935"><th id="-wrbqjp_59936"><p>uid</p></th><th id="-wrbqjp_59937"><p>username</p></th><th id="-wrbqjp_59938"><p>email</p></th></tr></thead><tbody><tr id="-wrbqjp_59939"><td id="-wrbqjp_59940"><p>2</p></td><td id="-wrbqjp_59941"><p>minh</p></td><td id="-wrbqjp_59942"><p>minh@example.com</p></td></tr></tbody></table></div></section></section><section class="chapter"><h2 id="sch-ma-relationnel-avec-les-types-de-contact" data-toc="sch-ma-relationnel-avec-les-types-de-contact">Sch&eacute;ma relationnel avec les types de contact</h2><section class="chapter"><h3 id="contacts6-relational-schema" data-toc="contacts6-relational-schema"><code class="code" id="-wrbqjp_59944">contacts6</code> Relational Schema</h3><div class="code-block" data-lang="sql">
+DROP SCHEMA IF EXISTS contacts6 CASCADE;
+CREATE SCHEMA contacts6;
+SET search_path TO contacts6;
+
+CREATE TABLE users (
+    uid INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    username VARCHAR(15) NOT NULL,
+    email TEXT NOT NULL,
+    firstname TEXT,
+    lastname TEXT
+);
+</div><div class="code-block" data-lang="sql">
+CREATE TYPE contact_type AS ENUM ('emergency', 'friend', 
+                                  'family', 'colleague');
+
+CREATE TABLE contacts (
+    cid INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    email TEXT NOT NULL,
+    type contact_type NOT NULL,
+    uid INTEGER REFERENCES users(uid)
+);
+</div><div class="code-block" data-lang="sql">
+INSERT INTO users (username, email)
+    VALUES ('denis', 'denis.rinfret@example.com'),
+            ('minh', 'minh@example.com');
+
+INSERT INTO contacts (email, type, uid) 
+    VALUES ('help@example.com', 'emergency', 1), ('minh@example.com', 'friend', 1), 
+        ('contact@example.com', 'colleague', 2) , ('ha@example.com', 'family', 2);
+</div><div class="code-block" data-lang="sql">
+SELECT * FROM users;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59949"><thead><tr class="ijRowHead" id="-wrbqjp_59950"><th id="-wrbqjp_59951"><p>uid</p></th><th id="-wrbqjp_59952"><p>username</p></th><th id="-wrbqjp_59953"><p>email</p></th><th id="-wrbqjp_59954"><p>firstname</p></th><th id="-wrbqjp_59955"><p>lastname</p></th></tr></thead><tbody><tr id="-wrbqjp_59956"><td id="-wrbqjp_59957"><p>1</p></td><td id="-wrbqjp_59958"><p>denis</p></td><td id="-wrbqjp_59959"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_59960"><p>None</p></td><td id="-wrbqjp_59961"><p>None</p></td></tr><tr id="-wrbqjp_59962"><td id="-wrbqjp_59963"><p>2</p></td><td id="-wrbqjp_59964"><p>minh</p></td><td id="-wrbqjp_59965"><p>minh@example.com</p></td><td id="-wrbqjp_59966"><p>None</p></td><td id="-wrbqjp_59967"><p>None</p></td></tr></tbody></table></div><div class="code-block" data-lang="sql">
+SELECT * FROM contacts;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59969"><thead><tr class="ijRowHead" id="-wrbqjp_59970"><th id="-wrbqjp_59971"><p>cid</p></th><th id="-wrbqjp_59972"><p>email</p></th><th id="-wrbqjp_59973"><p>type</p></th><th id="-wrbqjp_59974"><p>uid</p></th></tr></thead><tbody><tr id="-wrbqjp_59975"><td id="-wrbqjp_59976"><p>1</p></td><td id="-wrbqjp_59977"><p>help@example.com</p></td><td id="-wrbqjp_59978"><p>emergency</p></td><td id="-wrbqjp_59979"><p>1</p></td></tr><tr id="-wrbqjp_59980"><td id="-wrbqjp_59981"><p>2</p></td><td id="-wrbqjp_59982"><p>minh@example.com</p></td><td id="-wrbqjp_59983"><p>friend</p></td><td id="-wrbqjp_59984"><p>1</p></td></tr><tr id="-wrbqjp_59985"><td id="-wrbqjp_59986"><p>3</p></td><td id="-wrbqjp_59987"><p>contact@example.com</p></td><td id="-wrbqjp_59988"><p>colleague</p></td><td id="-wrbqjp_59989"><p>2</p></td></tr><tr id="-wrbqjp_59990"><td id="-wrbqjp_59991"><p>4</p></td><td id="-wrbqjp_59992"><p>ha@example.com</p></td><td id="-wrbqjp_59993"><p>family</p></td><td id="-wrbqjp_59994"><p>2</p></td></tr></tbody></table></div><div class="code-block" data-lang="sql">
+SELECT *
+FROM users u
+         INNER JOIN contacts c ON u.uid = c.uid;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_59996"><thead><tr class="ijRowHead" id="-wrbqjp_59997"><th id="-wrbqjp_59998"><p>uid</p></th><th id="-wrbqjp_59999"><p>username</p></th><th id="-wrbqjp_60000"><p>email</p></th><th id="-wrbqjp_60001"><p>firstname</p></th><th id="-wrbqjp_60002"><p>lastname</p></th><th id="-wrbqjp_60003"><p>cid</p></th><th id="-wrbqjp_60004"><p>email_1</p></th><th id="-wrbqjp_60005"><p>type</p></th><th id="-wrbqjp_60006"><p>uid_1</p></th></tr></thead><tbody><tr id="-wrbqjp_60007"><td id="-wrbqjp_60008"><p>1</p></td><td id="-wrbqjp_60009"><p>denis</p></td><td id="-wrbqjp_60010"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_60011"><p>None</p></td><td id="-wrbqjp_60012"><p>None</p></td><td id="-wrbqjp_60013"><p>1</p></td><td id="-wrbqjp_60014"><p>help@example.com</p></td><td id="-wrbqjp_60015"><p>emergency</p></td><td id="-wrbqjp_60016"><p>1</p></td></tr><tr id="-wrbqjp_60017"><td id="-wrbqjp_60018"><p>1</p></td><td id="-wrbqjp_60019"><p>denis</p></td><td id="-wrbqjp_60020"><p>denis.rinfret@example.com</p></td><td id="-wrbqjp_60021"><p>None</p></td><td id="-wrbqjp_60022"><p>None</p></td><td id="-wrbqjp_60023"><p>2</p></td><td id="-wrbqjp_60024"><p>minh@example.com</p></td><td id="-wrbqjp_60025"><p>friend</p></td><td id="-wrbqjp_60026"><p>1</p></td></tr><tr id="-wrbqjp_60027"><td id="-wrbqjp_60028"><p>2</p></td><td id="-wrbqjp_60029"><p>minh</p></td><td id="-wrbqjp_60030"><p>minh@example.com</p></td><td id="-wrbqjp_60031"><p>None</p></td><td id="-wrbqjp_60032"><p>None</p></td><td id="-wrbqjp_60033"><p>3</p></td><td id="-wrbqjp_60034"><p>contact@example.com</p></td><td id="-wrbqjp_60035"><p>colleague</p></td><td id="-wrbqjp_60036"><p>2</p></td></tr><tr id="-wrbqjp_60037"><td id="-wrbqjp_60038"><p>2</p></td><td id="-wrbqjp_60039"><p>minh</p></td><td id="-wrbqjp_60040"><p>minh@example.com</p></td><td id="-wrbqjp_60041"><p>None</p></td><td id="-wrbqjp_60042"><p>None</p></td><td id="-wrbqjp_60043"><p>4</p></td><td id="-wrbqjp_60044"><p>ha@example.com</p></td><td id="-wrbqjp_60045"><p>family</p></td><td id="-wrbqjp_60046"><p>2</p></td></tr></tbody></table></div></section><section class="chapter"><h3 id="users-without-emergency-contacts_2" data-toc="users-without-emergency-contacts_2">Trouver les utilisateurs sans contacts d'urgence</h3><div class="code-block" data-lang="sql">
+SELECT uid, username, email
+FROM users
+WHERE uid NOT IN (SELECT uid 
+                 FROM contacts
+                 WHERE type = 'emergency');
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_60048"><thead><tr class="ijRowHead" id="-wrbqjp_60049"><th id="-wrbqjp_60050"><p>uid</p></th><th id="-wrbqjp_60051"><p>username</p></th><th id="-wrbqjp_60052"><p>email</p></th></tr></thead><tbody><tr id="-wrbqjp_60053"><td id="-wrbqjp_60054"><p>2</p></td><td id="-wrbqjp_60055"><p>minh</p></td><td id="-wrbqjp_60056"><p>minh@example.com</p></td></tr></tbody></table></div><div class="code-block" data-lang="sql">
+SELECT users.uid, username, email
+FROM users LEFT JOIN (SELECT uid 
+                     FROM contacts
+                     WHERE type = 'emergency') AS temp
+    ON users.uid = temp.uid
+WHERE temp.uid IS NULL;
+</div><div class="table-wrapper"><table class="wide" id="-wrbqjp_60058"><thead><tr class="ijRowHead" id="-wrbqjp_60059"><th id="-wrbqjp_60060"><p>uid</p></th><th id="-wrbqjp_60061"><p>username</p></th><th id="-wrbqjp_60062"><p>email</p></th></tr></thead><tbody><tr id="-wrbqjp_60063"><td id="-wrbqjp_60064"><p>2</p></td><td id="-wrbqjp_60065"><p>minh</p></td><td id="-wrbqjp_60066"><p>minh@example.com</p></td></tr></tbody></table></div></section></section><section class="chapter"><h2 id="comment-traitons-nous-les-relations-plusieurs-plusieurs" data-toc="comment-traitons-nous-les-relations-plusieurs-plusieurs">Comment traitons-nous les relations plusieurs &agrave; plusieurs ?</h2><ul class="list _bullet" id="-wrbqjp_60067"><li class="list__item" id="-wrbqjp_60068"><p>Dans une base de donn&eacute;es relationnelle, nous avons besoin d'une table suppl&eacute;mentaire entre les 2 tables. </p><ul class="list _bullet" id="-wrbqjp_60069"><li class="list__item" id="-wrbqjp_60070"><p>Par exemple, nous avons besoin d'une table entre &quot;Users&quot; et &quot;Contacts&quot;, contenant des cl&eacute;s &eacute;trang&egrave;res pour les ID d'utilisateur et les ID de contact.</p></li></ul></li><li class="list__item" id="-wrbqjp_60071"><p>Comment r&eacute;cup&eacute;rons-nous toutes les donn&eacute;es ? </p><ul class="list _bullet" id="-wrbqjp_60072"><li class="list__item" id="-wrbqjp_60073"><p>Avec 2 jointures.</p></li></ul></li><li class="list__item" id="-wrbqjp_60074"><p>Qu'en est-il des autres mod&egrave;les de donn&eacute;es ? </p><ul class="list _bullet" id="-wrbqjp_60075"><li class="list__item" id="-wrbqjp_60076"><p>Avec des tableaux ?</p></li><li class="list__item" id="-wrbqjp_60077"><p>Avec JSONB ?</p></li></ul></li></ul><p id="-wrbqjp_60078"><span class="control" id="-wrbqjp_60079">Il n'y a pas de solutions miracles pour les relations plusieurs &agrave; plusieurs</span></p></section><div class="last-modified">Last modified: 13 mars 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="denormalisation.html" class="navigation-links__prev">D&eacute;normalisation</a><a href="diagrammes-d-etats.html" class="navigation-links__next">Diagrammes d'&eacute;tat</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b224/app.js"></script></body></html>

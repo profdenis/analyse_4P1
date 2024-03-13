@@ -1,9 +1,9 @@
 # Diagrammes de séquences
 
-Un diagramme de séquences est un type de diagramme utilisé en ingénierie logicielle dans le cadre de la modélisation
-orientée objet. Faisant partie du langage de modélisation unifié (UML), le diagramme de séquences est utilisé pour
-visualiser et documenter les interactions entre les objets dans un système au cours d'un processus ou d'une période de
-temps spécifiée.
+Un diagramme de séquences, parfois appelé un diagramme de messages, est un type de diagramme utilisé en ingénierie
+logicielle dans le cadre de la modélisation orientée objet. Faisant partie du langage de modélisation unifié (UML), le
+diagramme de séquences est utilisé pour visualiser et documenter les interactions entre les objets dans un système au
+cours d'un processus ou d'une période de temps spécifiée.
 
 Voici quelques principaux éléments qui composent un diagramme de séquences :
 

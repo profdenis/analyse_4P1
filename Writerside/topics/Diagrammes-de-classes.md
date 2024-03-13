@@ -5,8 +5,9 @@
 Les diagrammes de classes UML sont un type unique de diagramme dans la notation UML. Cependant, ils peuvent être
 catégorisés en fonction de leur utilisation ou de leur niveau de détail.
 
-1. **Diagramme de classes conceptuel** (Diagramme du domaine) : Ce type de diagramme est utilisé au tout début de la conception, lorsque vous
-   essayez simplement de déterminer quels éléments devraient être dans le système et comment ils devraient être liés.
+1. **Diagramme de classes conceptuel** (Diagramme du domaine) : Ce type de diagramme est utilisé au tout début de la
+   conception, lorsque vous essayez simplement de déterminer quels éléments devraient être dans le système et comment
+   ils devraient être liés.
 
 2. **Diagramme de classes spécifique** : Il s'agit d'une version plus détaillée d'un diagramme de classes conceptuel. Il
    inclut des détails spécifiques sur les propriétés et les méthodes que chaque classe utilisera.

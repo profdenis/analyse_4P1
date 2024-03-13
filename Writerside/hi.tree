@@ -69,9 +69,19 @@
         </toc-element>
     </toc-element>
     <toc-element topic="Conception-detaillee.md">
+        <toc-element topic="Modeles-de-donnees.md">
+            <toc-element topic="Normalisation.md"/>
+            <toc-element topic="Denormalisation.md"/>
+            <toc-element topic="Exemple-ORDBMS.md"/>
+        </toc-element>
         <toc-element topic="Diagrammes-d-etats.md"/>
         <toc-element topic="Diagrammes-de-sequences.md"/>
-        <toc-element topic="Diagrammes-de-messages.md"/>
-        <toc-element topic="Patrons-de-conception.md"/>
+    </toc-element>
+    <toc-element topic="Patrons-de-conception.md">
+        <toc-element topic="principesOO.md"/>
+        <toc-element topic="DesignPatterns1_ShapeFactory.md"/>
+        <toc-element topic="DesignPatterns2_creation.md"/>
+        <toc-element topic="DesignPatterns3_structuraux.md"/>
+        <toc-element topic="DesignPatterns4_comportementaux.md"/>
     </toc-element>
 </instance-profile>

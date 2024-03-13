@@ -1,3 +1,0 @@
-# Diagrammes de messages
-
-Start typing here...
