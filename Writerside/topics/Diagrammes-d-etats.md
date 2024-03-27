@@ -55,25 +55,23 @@ Erreur -> EnAttente : Réparer le problème
 
 ## Différences entre les diagrammes d'activités et les diagrammes d'états
 
-Assistant:
 Les diagrammes d'activités et les diagrammes d'états sont tous deux des types de diagrammes de comportement utilisés en
-UML (Unified Modeling Language). Cependant, ils ont des utilisations et des focales légèrement différentes.
+UML. Cependant, ils ont des utilisations et des buts légèrement différents.
 
 1. **Diagramme d'état (State Diagram)**
     - Un diagramme d'état est utilisé pour représenter le comportement d'une seule entité (classe, composant,
       sous-système, etc.).
-    - Il décrit les différentes états d'une entité et comment elle transite d'un état à un autre en réponse à des
+    - Il décrit les différents états d'une entité et comment elle transite d'un état à un autre en réponse à des
       événements.
     - Les diagrammes d'état sont davantage axés sur l'état interne d'une entité et sur la manière dont la modification
-      de cet état provoque des changements de comportement pour cette entité. Par exemple, le diagramme d'état d'une
-      machine à café peut comprendre des états comme "éteint", "en attente", "préparation du café", etc.
+      de cet état provoque des changements de comportement pour cette entité. 
 
 2. **Diagramme d'activité (Activity Diagram)**
     - Un diagramme d'activité est utilisé pour modéliser le flux de travail ou le processus d'affaires pour plusieurs
       entités.
     - Il décrit l'ordre séquentiel des actions et les conditions qui dictent le flux entre ces actions.
     - Les diagrammes d'activité ont une vision globale et se concentrent sur le flux de contrôle et d'objet à travers la
-      modélisation des activités passées de l'état initial à l'état final. Par exemple, le diagramme d'activité d'un
+      modélisation des activités passées de l'état initial à l'état final. Par exemple, le diagramme d'activités d'un
       système de commande peut inclure des activités comme "sélectionner des articles", "ajouter au panier", "vérifier",
       etc.
 
