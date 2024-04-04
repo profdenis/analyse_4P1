@@ -1,4 +1,4 @@
-# Design Patterns : Première Partie
+# Design Patterns : Création (Première Partie)
 
 ## Fabrique (*Factory Method*, *Virtual Constructor*)
 
@@ -11,8 +11,8 @@ transférer la responsabilité de créer des objets aux sous-classes.
 ### Mise en contexte {id="mise-en-contexte_1"}
 
 Application de dessin, avec la possibilité de dessiner au moins 2 types
-d'images, des images sur un `Canvas` (voir `ShapesLib`), ou des images de type *
-AsciiArt*. On peut dessiner des figures géométriques sur ces images.
+d'images, des images sur un `Canvas` (voir `ShapesLib`), ou des images de type 
+_AsciiArt_. On peut dessiner des figures géométriques sur ces images.
 
 ### Détails {id="d-tails_1"}
 
@@ -25,7 +25,7 @@ AsciiArt*. On peut dessiner des figures géométriques sur ces images.
     - Sauvegarder
 2. L'application doit créer soit une `CanvasApp`, soit une `AsciiApp`
 3. Chaque app doit créer un document du bon type, `CanvasDoc` ou `AsciiDoc`
-4. La méthode `CreateDoc` est abstraite parce que le type de document créé va
+4. La méthode `CreateDocument` est abstraite parce que le type de document créé va
    dépendre du type d'image choisie
     - donc le menu principal doit créer le bon type d'application, mais le reste
       du code de l'interface graphique va travailler avec les classes
@@ -38,6 +38,8 @@ AsciiArt*. On peut dessiner des figures géométriques sur ces images.
 
 ````plantuml
 @startuml
+skinparam classAttributeIconSize 0
+
 abstract class Document {
 }
 
@@ -102,6 +104,8 @@ Continuation de l'exemple précédent. Pour créer les figures géométriques
 
 ````plantuml
 @startuml
+skinparam classAttributeIconSize 0
+
 abstract class ShapeFactory {
    +{abstract} CreateLine() : Line
    +{abstract} CreateCircle() : Circle

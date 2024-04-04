@@ -20,17 +20,12 @@ fonctionnalité, mais possiblement avec une interface différente.
 Exemple avec les bases de données : connexion directe à la BD vs. adaptateur
 entre le client et la BD.
 
-- Une **connexion directe** à la BD évite d'avoir des couches de trop, donc il
-  est
-  souvent possible d'optimiser des requêtes de meilleure façon et d'utiliser des
-  fonctionnalités de la BD directement.
-- Avec un **adaptateur**, il est possible de présenter une interface plus simple
-  au
-  client, qui n'a pas besoin de s'occuper des détails de connexion à la base de
-  données, ni du langage de requêtes (SQL ou autre).
-- Également avec un **adaptateur**, il est plus facile de migrer vers des BD
-  différentes, même vers des BD de types différents (relationnelles vs. noSQL,
-  ...).
+- Une **connexion directe** à la BD évite d'avoir des couches de trop, donc il est souvent possible d'optimiser des
+  requêtes de meilleure façon et d'utiliser des fonctionnalités de la BD directement.
+- Avec un **adaptateur**, il est possible de présenter une interface plus simple au client, qui n'a pas besoin de 
+  s'occuper des détails de connexion à la base de données, ni du langage de requêtes (SQL ou autre).
+- Également avec un **adaptateur**, il est plus facile de migrer vers des BD différentes, même vers des BD de types
+  différents (relationnelles vs. noSQL,  ...).
 
 Un exemple détaillé va être donné dans une solution C# disponible séparément.
 
@@ -40,8 +35,7 @@ Un exemple détaillé va être donné dans une solution C# disponible séparéme
 
 ### Intention {id="intention_2"}
 
-Découple une abstraction de son implémentation pour que les deux puissent
-évoluer indépendamment.
+Découple une abstraction de son implémentation pour que les deux puissent évoluer indépendamment.
 
 ### Mise en contexte {id="mise-en-contexte_2"}
 
@@ -75,6 +69,7 @@ le diagramme de classes.
 
 ````plantuml
 @startuml
+skinparam classAttributeIconSize 0
 
 abstract class Element {
 }
@@ -116,8 +111,8 @@ Exemples :
   lors de la sérialisation d'un objet. La propriété ou l'attribut sera alors
   ignoré et ne se retrouvera pas dans le résultat de la sérialisation.
 - En développement web, plusieurs *frameworks* utilisent des décorateurs pour
-  envelopper des fonctions ou méthodes pour qu'elles servent de gestionnaire (*
-  handler*) de requêtes sur certaines routes. Une fonction peut être décorée du
+  envelopper des fonctions ou méthodes pour qu'elles servent de gestionnaire
+  (*handler*) de requêtes sur certaines routes. Une fonction peut être décorée du
   chemin de la route (`/`, `/data/users/`, ...), de la méthode (`GET`, `POST`,
   ...), et possiblement d'autres informations. De cette façon, la fonction est
   enregistrée dans le serveur comme étant le gestionnaire de la route. Si aucune
@@ -205,8 +200,7 @@ diminuer les resources utilisées par l'application.
 
 ### Détails {id="d-tails_6"}
 
-À voir dans un autre cours.
-
+À venir
 
 -------------------------------------------------------------------------------
 

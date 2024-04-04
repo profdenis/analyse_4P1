@@ -1,4 +1,4 @@
-# Design Patterns : Deuxième Partie
+# Design Patterns : Création (Deuxième Partie)
 
 ## Monteur (*Builder*)
 
@@ -10,9 +10,7 @@ Construire un objet complexe étape par étape.
 
 Différence avec une fabrique abstraite :
 
-- **Fabrique abstraite** : construire des objets, *simples* ou *complexes*,
-  d'une
-  *même famille*
+- **Fabrique abstraite** : construire des objets, *simples* ou *complexes*, d'une *même famille*
     - construire des `Shape`s de toutes sortes
 - **Monteur** : construire un objet *complexe étape par étape*.
     - Construire des `Shape`s complexes composées de plusieurs autres formes
@@ -30,6 +28,8 @@ Créer des labyrinthes étape par étape :
 
 ````plantuml
 @startuml
+skinparam classAttributeIconSize 0
+
 abstract MazeBuilder {
   +{abstract} BuildMaze()
   +{abstract} BuildRoom()

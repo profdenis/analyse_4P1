@@ -1,4 +1,4 @@
-# Design Patterns : Comportementaux (*Behavioral*)
+# Design Patterns : Comportementaux (Behavioral)
 
 ## Itérateur (*Iterator*, *Enumerator*, *Cursor*)
 
@@ -16,6 +16,8 @@ boucle (`for`, `foreach` ou `while`).
 
 ````plantuml
 @startuml
+skinparam classAttributeIconSize 0
+
 class Client {}
 
 interface ICollection<T> {
@@ -58,6 +60,20 @@ while (!iter.Done()) {
     //...
 }
 ````
+
+En C#, les boucles `foreach` peuvent être utilisées seulement sur les types qui implémentent le _pattern_
+Itérateur. `List` est un exemple de classe qui implémente les itérateurs.
+
+```C#
+// tiré de l'exemple de figures géométriques ShapesApp et ShapesLib
+List<Shape> shapes = new List<Shape>();
+shapes.Add(new Line(p1, new Point(200, 300), Color.Lime));
+// ...
+foreach (Shape shape in shapes)
+{
+    shape.Draw(canvas);
+}
+```
 
 -------------------------------------------------------------------------------
 
@@ -108,7 +124,7 @@ type *annuler*.
 
 ### Mise en contexte {id="mise-en-contexte_3"}
 
-Peut-être relié au *design pattern* de la chaîne de responsabilité et d'autres
+Peut être relié au *design pattern* de la chaîne de responsabilité et d'autres
 *design patterns*. Chaque gestionnaire dans une chaîne de responsabilité
 pourrait être représenté sous forme de commande.
 
@@ -126,6 +142,8 @@ C#.
 
 ````plantuml
 @startuml
+skinparam classAttributeIconSize 0
+
 class Application {
     +Add(Document)
 }
@@ -261,6 +279,8 @@ donne l'idée générale du principe.
 
 ````plantuml
 @startuml
+skinparam classAttributeIconSize 0
+
 class Application {
     +List<T> { get; set; }
     +Main()
