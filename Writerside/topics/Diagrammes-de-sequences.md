@@ -76,6 +76,7 @@ RMDP --> GMDP: detailsApprouves()
 deactivate RMDP
 GMDP -> GMDP: creerMotDePasse(detailsMotDePasse)
 GMDP --> IU: retournerMotDePasse(motDePasse)
+deactivate GMDP
 
 IU --> Utilisateur: afficherMotDePasse(motDePasse)
 deactivate IU
@@ -86,6 +87,8 @@ deactivate CFMDP
 
 @enduml
 ```
+
+
 
 ## Références
 

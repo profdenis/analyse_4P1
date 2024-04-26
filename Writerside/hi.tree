@@ -75,7 +75,9 @@
             <toc-element topic="Exemple-ORDBMS.md"/>
         </toc-element>
         <toc-element topic="Diagrammes-d-etats.md"/>
-        <toc-element topic="Diagrammes-de-sequences.md"/>
+        <toc-element topic="Diagrammes-de-sequences.md">
+            <toc-element topic="Exemples-sequences.md"/>
+        </toc-element>
     </toc-element>
     <toc-element topic="Patrons-de-conception.md">
         <toc-element topic="principesOO.md"/>
